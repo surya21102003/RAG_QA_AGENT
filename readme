@@ -1,0 +1,157 @@
+Here is a **single continuous README.md** (no sections split across messages) that you can directly copy-paste:
+
+---
+
+```markdown
+# 🧠 RAG AI Agent using LangGraph
+
+This project demonstrates a basic **AI Agent** built using **LangGraph**, **LangChain**, and **ChromaDB** that can answer questions using **RAG (Retrieval-Augmented Generation)**. It retrieves information from local text/PDF files and generates a validated answer with a reflection step.
+
+---
+
+## 📌 Project Overview
+
+This AI Agent performs the following steps:
+
+1. Accepts a user question  
+2. Retrieves relevant information from a small knowledge base stored in a vector database  
+3. Uses an LLM to generate an answer based on retrieved context  
+4. Runs a reflection step to check if the answer is relevant and meaningful  
+
+The agent workflow includes the required **four LangGraph nodes**:
+
+| Node | Purpose |
+|-------|-----------|
+| `plan` | Interprets the query and decides if retrieval is required |
+| `retrieve` | Performs RAG by searching Chroma VectorDB |
+| `answer` | Uses an LLM to generate a final answer using retrieved context |
+| `reflect` | Evaluates the answer for relevance or completeness |
+
+---
+
+## ✨ Features
+
+- RAG with Embeddings + ChromaDB
+- LangGraph workflow-based agent system
+- Works with OpenAI or HuggingFace models
+- Local text/PDF document ingestion
+- Console logs showing step-by-step workflow
+- Can run fully locally (if using HF embeddings)
+
+---
+
+## 📂 Folder Structure
+
+```
+
+rag-ai-agent/
+│
+├── data/
+│   ├── doc1.txt
+│   ├── doc2.txt
+│   └── doc3.txt
+│
+├── rag_agent_singlefile.py           # Single-file RAG Agent implementation
+├── requirements.txt
+└── README.md
+
+````
+
+> Place all your knowledge files inside the `data/` folder.
+
+---
+
+## 🔧 Tech Stack Used
+
+| Component | Tool |
+|-----------|------|
+| Agent Framework | LangGraph |
+| RAG Pipeline | LangChain |
+| Vector Database | ChromaDB |
+| Embeddings | OpenAI / HuggingFace |
+| LLM | OpenAI or Local HuggingFace Model |
+| File Support | TXT, PDF |
+
+---
+
+## 🚀 How to Run the Project
+
+### 1 Create Project Folder
+
+```bash
+mkdir rag_agent_singlefile
+cd rag_agent_singlefile
+````
+
+### 2 Add Files
+
+Create and place:
+
+* `rag_agent_singlefile.py`
+* `requirements.txt`
+* `data/` folder with your text/PDF documents
+
+### 3 Create Virtual Environment
+
+**Windows:**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Mac/Linux:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 4 Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5(Optional) Set API Keys
+
+If using OpenAI or HF models:
+
+Create `.env` file:
+
+```
+OPENAI_API_KEY=your_openai_api_key
+HF_TOKEN=your_huggingface_token(optional)
+```
+
+### 6 Run the AI Agent
+
+```bash
+python rag_agent_singlefile.py
+```
+
+---
+
+## 🧠 Example Usage
+
+**Input:**
+
+```
+Enter your question: What are the benefits of renewable energy?
+```
+
+**Output:**
+
+```
+[PLAN] Retrieval required
+[RETRIEVE] Retrieved 2 documents
+[ANSWER] Generated answer using retrieved context
+[REFLECT] Answer relevant ✅
+
+Final Answer:
+Renewable energy reduces carbon emissions, protects the environment, and provides sustainable power...
+```
+
+
+
+

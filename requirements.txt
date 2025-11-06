@@ -1,0 +1,8 @@
+chromadb>=0.3.28
+sentence-transformers>=2.2.2
+langchain>=0.0.300
+openai>=0.27.0
+numpy>=1.23.0
+# Optional:
+# pdfplumber>=0.7.5  # for PDF parsing
+# faiss-cpu>=1.7.4  # optional faster vector search
